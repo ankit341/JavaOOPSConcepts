@@ -56,8 +56,15 @@ class School {
     }
 }
 
-public class AssociationExample {
+public class AssociationExample{
     public static void main (String[] args) {
+
+        int[] myArray = new int[10];
+        System.out.println(myArray.getClass().getName());
+        System.out.println(myArray instanceof Object);
+
+        int myArray2[] = new int[15];
+
         Player p1 = new Player("Harris", 1, "Red");
         Player p2 = new Player("Carol", 2, "Red");
         Player p3 = new Player("Johnny", 1, "Blue");
