@@ -31,6 +31,5 @@ public class ArrayListExamples {
 
         list.add(3,3000d);
 
-
     }
 }
