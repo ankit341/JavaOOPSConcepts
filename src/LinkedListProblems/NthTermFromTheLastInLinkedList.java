@@ -2,7 +2,7 @@ package LinkedListProblems;
 
 import java.util.ArrayList;
 
-class SinglyLinkedList4<Integer>{
+class SinglyLinkedList5<Integer>{
     public class Node{
         public Node nextElement;
         public Integer data;
@@ -19,7 +19,7 @@ class SinglyLinkedList4<Integer>{
         return size;
     }
 
-    public SinglyLinkedList4(){
+    public SinglyLinkedList5(){
         headNode = null;
         size = 0;
     }
@@ -88,55 +88,45 @@ class SinglyLinkedList4<Integer>{
             currentNode = currentNode.nextElement;
         }
     }
-}
-public class InterSectionAndUnionOfLinkedList {
-    public static <Integer> SinglyLinkedList4<Integer> union(SinglyLinkedList4<Integer> list1, SinglyLinkedList4<Integer> list2){
-        SinglyLinkedList4<Integer>.Node currentNodeList1 = list1.getHeadNode();
-        SinglyLinkedList4<Integer>.Node currentNodeList2 = list2.getHeadNode();
 
-        list1.removeDuplicates();
-        list2.removeDuplicates();
+    public int sizeOfTheLinkedList(){
+        int length = 0;
+        Node currentNode = this.headNode;
 
-        while (currentNodeList1.nextElement != null){
-            currentNodeList1 = currentNodeList1.nextElement;
+        while (currentNode != null){
+            length++;
+            currentNode = currentNode.nextElement;
         }
-        currentNodeList1.nextElement = currentNodeList2;
-        list1.removeDuplicates();
-        return list1;
+        return length;
     }
+}
 
-    public static <Integer> SinglyLinkedList4<Integer> intersection(SinglyLinkedList4<Integer> list1, SinglyLinkedList4<Integer> list2){
-        SinglyLinkedList4<Integer>.Node currentNodeList1 = list1.getHeadNode();
-        SinglyLinkedList4<Integer>.Node currentNodeList2 = list2.getHeadNode();
+public class NthTermFromTheLastInLinkedList {
+    public static <Integer> Integer nthElementFromLast(SinglyLinkedList5<Integer> singlyLinkedList5, int indexFromLast){
+        Integer requiredVariable = null;
+        int sizeOfLinkedList = singlyLinkedList5.sizeOfTheLinkedList();
 
-        list1.removeDuplicates();
-        list2.removeDuplicates();
+        if (sizeOfLinkedList == 0 || indexFromLast > sizeOfLinkedList)
+            return null;
 
-        SinglyLinkedList4<Integer> newLinkedList = new SinglyLinkedList4<Integer>();
-        ArrayList<Integer> intermediateArrayList = new ArrayList<Integer>();
+        int indexFromStart = sizeOfLinkedList - indexFromLast + 1;
+        SinglyLinkedList5.Node currentNode = singlyLinkedList5.getHeadNode();
+        int intermediateCount = 0;
+        while (currentNode != null){
+            if(intermediateCount == indexFromStart)
+                requiredVariable = (Integer) currentNode.data;
 
-        while (currentNodeList1 != null){
-            intermediateArrayList.add(currentNodeList1.data);
-            currentNodeList1 = currentNodeList1.nextElement;
+            currentNode = currentNode.nextElement;
         }
-
-        while (currentNodeList2 != null) {
-            if (intermediateArrayList.contains(currentNodeList2.data)) {
-                newLinkedList.insertDataAtTheEnd(currentNodeList2.data);
-            }
-            currentNodeList2 = currentNodeList2.nextElement;
-        }
-        return newLinkedList;
+        return requiredVariable;
     }
 
     public static void main(String[] args) {
-        SinglyLinkedList4 list1 = new SinglyLinkedList4();
-        SinglyLinkedList4 list2 = new SinglyLinkedList4();
+        SinglyLinkedList5 singlyLinkedList5 = new SinglyLinkedList5();
+
         for (int i = 0; i < 15; i++){
-            list1.insertDataAtTheEnd(i+1);
-            list2.insertDataAtTheEnd(i+2);
+            singlyLinkedList5.insertDataAtTheEnd(i + 1);
         }
-        System.out.println(union(list1,list2).toString());
-        System.out.println(intersection(list1,list2).toString());
+        nthElementFromLast(singlyLinkedList5,5);
     }
 }

@@ -24,15 +24,14 @@ public class InsertionAtTheEnd<Integer> {
         Node temp = headNode;
         if (temp == null){
             headNode = node;
-            size++;
         } else {
             while (temp.nexElementPointer != null) {
                 temp = temp.nexElementPointer;
             }
             temp.nexElementPointer = node;
             temp.nexElementPointer.data = node.data;
-            size++;
         }
+        size++;
     }
 
     public void displayLinkedList(){
