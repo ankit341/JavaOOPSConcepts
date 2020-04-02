@@ -92,7 +92,7 @@ public class StacksBasicsOperation<Integer> {
     }
 
     public static void main(String[] args) {
-        StacksBasicsOperation stacksBasicsOperation = new StacksBasicsOperation(10);
+        StacksBasicsOperation<java.lang.Integer> stacksBasicsOperation = new StacksBasicsOperation<>(10);
         stacksBasicsOperation.pushInStack(15);
         stacksBasicsOperation.pushInStack(16);
         stacksBasicsOperation.pushInStack(17);

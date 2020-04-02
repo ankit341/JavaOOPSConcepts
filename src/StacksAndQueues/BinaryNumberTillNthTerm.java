@@ -28,7 +28,7 @@ public class BinaryNumberTillNthTerm<Integer> {
             String sequence1 = intermediateArray[i] + "0";
             String sequence2 = intermediateArray[i] + "1";
             queuesBasicOperation.enqueue(sequence1);
-            queuesBasicOperation.enqueue(sequence2);
+            queuesBasicOperation.enqueue(sequence2); //You will always get an error message that the queue is full and no more insertion will take place,  it is because the insertions happens on power of 2.
         }
 
         return intermediateArray;
