@@ -1,13 +1,13 @@
 package StacksAndQueues;
 
-public class MinimumStack {
+public class MinimumStackUsingArrays {
     private int maxSize;
     private int topOfTheStackMain;
     private int topOfTheStackMinimum;
     private int[] arrayOfStack;
     private int[] arrayToStoreTheMinimumValueAtAnyPoint;
 
-    public MinimumStack(int maxSize){
+    public MinimumStackUsingArrays(int maxSize){
         this.maxSize = maxSize;
         topOfTheStackMain = -1;
         topOfTheStackMinimum = -1;
@@ -63,7 +63,7 @@ public class MinimumStack {
     }
 
     public static void main(String[] args) {
-        MinimumStack minimumStack = new MinimumStack(5);
+        MinimumStackUsingArrays minimumStack = new MinimumStackUsingArrays(5);
         minimumStack.pushElementsInStack(5);
         minimumStack.pushElementsInStack(4);
         minimumStack.pushElementsInStack(1);
